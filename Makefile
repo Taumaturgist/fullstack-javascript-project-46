@@ -1,5 +1,7 @@
-gendiff:
-	node bin/gendiff.js
+gh:
+	node bin/gendiff.js -h
+gv:
+	node bin/gendiff.js -V
 install:
 	npm ci
 lint:

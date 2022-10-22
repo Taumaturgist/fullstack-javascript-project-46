@@ -1,17 +1,12 @@
 #!/usr/bin/env node
 
-console.log('I\'m launched!');
-
-import {Command} from 'commander';
-
-const program = new Command();
+import {program} from 'commander';
 
 program
-    .description('Compares two configuration files and shows a difference.')
-    .option('-V, --version', 'output the version number')
-    .option('-h, --help', 'display help for command')
+  .description('Compares two configuration files and shows a difference.')   
+  .arguments('<filepath1> <filepath2>')
+  .option('-V, --version', 'output the version number')
+  .option('-f, --format <type>', 'output format')
+  .parse();
 
-    const options = program.opts();
-    if (options.help)
 
-    

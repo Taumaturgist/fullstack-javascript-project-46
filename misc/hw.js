@@ -20,9 +20,9 @@ const command = (names, lower, upper) => {
 };
 
 program
-  .option('-l, --lower', 'only use lowercase letters')
-  .option('-u, --upper', 'only use uppercase letters')
-  .parse(process.argv);
+.option('-l, --lower', 'only use lowercase letters')
+.option('-u, --upper', 'only use uppercase letters')
+.parse(process.argv);
 
 const { args } = program;
 const options = program.opts();
