@@ -1,0 +1,6 @@
+useful links I used for this project
+
+https://ru.hexlet.io/projects/44/members/24650?step=2
+https://ru.hexlet.io/blog/posts/cli-avtomatizatsiya
+https://github.com/tj/commander.js
+
