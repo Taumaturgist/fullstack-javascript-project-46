@@ -4,4 +4,5 @@ https://ru.hexlet.io/projects/44/members/24650?step=2
 https://ru.hexlet.io/blog/posts/cli-avtomatizatsiya
 https://github.com/tj/commander.js
 https://www.youtube.com/watch?v=vkUTX1hruF8&ab_channel=DevConf
+https://ru.hexlet.io/code_reviews/764237 //реализация вычислителя отличий в Испытании для Проекта
 
