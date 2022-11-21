@@ -1,4 +1,5 @@
 import genDiff from '../src/index.js';
+import _ from 'lodash';
 
 const testStr = '{\n  - follow: to delete\n    host: unchanged\n  - proxy: to delete\n  - timeout: old value\n  + timeout: new value\n  + verbose: added data\n}';
 
