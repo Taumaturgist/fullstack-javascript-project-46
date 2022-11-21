@@ -8,6 +8,8 @@ gff2:
 	node bin/gendiff.js file1.json misc/file2.json
 gff3:
 	node bin/gendiff.js file1.json /mnt/c/tau/git/hexlet/js/file2.json
+test-all:
+	NODE_OPTIONS=--experimental-vm-modules npx jest
 install:
 	npm ci
 lint:

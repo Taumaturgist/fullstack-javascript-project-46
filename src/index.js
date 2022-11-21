@@ -64,7 +64,8 @@ const genDiff = (filepath1, filepath2) => {
   const obj2 = JSON.parse(fs.readFileSync(path.resolve(filepath2)));
   const obj3 = compare(obj1, obj2);
   const str = stringifyAndSort(obj3);
-  console.log(str);
+  console.log(str); // the actual result for user
+  return str; // the actual result for Jest tester
 };
 
 export default genDiff;
