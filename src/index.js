@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import fs from 'fs';
 import path from 'path';
+import parser from './parser.js';
 
 const compare = (obj1, obj2) => {
   const keys1 = Object.keys(obj1);
@@ -60,10 +61,21 @@ const stringifyAndSort = (obj) => {
 } */
 
 const genDiff = (filepath1, filepath2) => {
-  const obj1 = JSON.parse(fs.readFileSync(path.resolve(filepath1)));
-  const obj2 = JSON.parse(fs.readFileSync(path.resolve(filepath2)));
+  const fullpath1 = path.resolve(filepath1);
+  const fullpath2 = path.resolve(filepath2);
+
+  const extension1 = path.extname(fullpath1);
+  const extension2 = path.extname(fullpath2);
+
+  const file1 = fs.readFileSync(fullpath1);
+  const file2 = fs.readFileSync(fullpath2);
+
+  const obj1 = parser(file1, extension1);
+  const obj2 = parser(file2, extension2);
+
   const obj3 = compare(obj1, obj2);
   const str = stringifyAndSort(obj3);
+
   console.log(str); // the actual result for user
   return str; // the actual result for Jest tester
 };
