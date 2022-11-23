@@ -1,8 +1,9 @@
 import _ from 'lodash';
 import fs from 'fs';
 import path from 'path';
-import parse from './parsers.js';
+import parse from './parser.js';
 import compare from './comparator.js';
+import format from './formatter.js';
 
 const stringifyAndSort = (obj) => {
   // collect into sorted array from object
@@ -29,7 +30,7 @@ const stringifyAndSort = (obj) => {
   return str;
 };
 
-const genDiff = (filepath1, filepath2) => {
+const genDiff = (filepath1, filepath2, view = 'stylish') => {
   const fullpath1 = path.resolve(filepath1);
   const fullpath2 = path.resolve(filepath2);
 
@@ -43,7 +44,7 @@ const genDiff = (filepath1, filepath2) => {
   const obj2 = parse(file2, extension2);
 
   const obj3 = compare(obj1, obj2);
-  const str = stringifyAndSort(obj3);
+  const str = format(obj3, view);
 
   console.log('\nthis is the String result\n');
   console.log(str); // the actual result for user

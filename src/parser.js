@@ -13,5 +13,3 @@ const parse = (file, extension) => {
 };
 
 export default parse;
-
-// calculator of changes, not differencies.
