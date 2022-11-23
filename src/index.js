@@ -19,7 +19,7 @@ const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
 
   const obj3 = compare(obj1, obj2);
   const str = format(obj3, formatName);
-  
+
   console.log(str); // the actual result for user
   return str; // the actual result for Jest tester
 };
