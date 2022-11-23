@@ -6,6 +6,8 @@ step6: https://asciinema.org/a/539621
 
 step7: https://asciinema.org/a/539637
 
+step8: https://asciinema.org/a/539639
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Taumaturgist/fullstack-javascript-project-46/workflows/hexlet-check/badge.svg)](https://github.com/Taumaturgist/fullstack-javascript-project-46/actions)
 
