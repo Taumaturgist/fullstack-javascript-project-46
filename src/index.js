@@ -1,28 +1,8 @@
 import _ from 'lodash';
 import fs from 'fs';
 import path from 'path';
-import parser from './parser.js';
-
-const compare = (obj1, obj2) => {
-  const keys1 = Object.keys(obj1);
-  const keys2 = Object.keys(obj2);
-  const keys = _.union(keys1, keys2);
-
-  const result = {};
-  for (const key of keys) {
-    if (!Object.hasOwn(obj1, key)) {
-      result[`+ ${key}`] = obj2[key];
-    } else if (!Object.hasOwn(obj2, key)) {
-      result[`- ${key}`] = obj1[key];
-    } else if (obj1[key] !== obj2[key]) {
-      result[`- ${key}`] = obj1[key];
-      result[`+ ${key}`] = obj2[key];
-    } else {
-      result[`  ${key}`] = obj1[key];
-    }
-  }
-  return result;
-};
+import parse from './parsers.js';
+import compare from './comparator.js';
 
 const stringifyAndSort = (obj) => {
   // collect into sorted array from object
@@ -48,17 +28,6 @@ const stringifyAndSort = (obj) => {
 
   return str;
 };
-/* EXAMPLE of output. follow and proxy are in 1 only, verbose is in 2 only;
-  gendiff filepath1.json filepath2.json
-
-{
-  - follow: false
-    host: hexlet.io
-  - proxy: 123.234.53.22
-  - timeout: 50
-  + timeout: 20
-  + verbose: true
-} */
 
 const genDiff = (filepath1, filepath2) => {
   const fullpath1 = path.resolve(filepath1);
@@ -70,16 +39,15 @@ const genDiff = (filepath1, filepath2) => {
   const file1 = fs.readFileSync(fullpath1);
   const file2 = fs.readFileSync(fullpath2);
 
-  const obj1 = parser(file1, extension1);
-  const obj2 = parser(file2, extension2);
+  const obj1 = parse(file1, extension1);
+  const obj2 = parse(file2, extension2);
 
   const obj3 = compare(obj1, obj2);
   const str = stringifyAndSort(obj3);
 
+  console.log('\nthis is the String result\n');
   console.log(str); // the actual result for user
   return str; // the actual result for Jest tester
 };
 
 export default genDiff;
-
-// calculator of changes, not differencies.

@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
 
-const parser = (file, extension) => {
+const parse = (file, extension) => {
   switch (extension) {
     case '.json':
       return JSON.parse(file);
@@ -8,10 +8,10 @@ const parser = (file, extension) => {
     case '.yaml':
       return yaml.load(file);
     default:
-      return null;
+      throw new Error(`Unknown type of format: ${extension}`);
   }
 };
 
-export default parser;
+export default parse;
 
 // calculator of changes, not differencies.

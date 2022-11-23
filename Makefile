@@ -14,6 +14,10 @@ gyml:
 	node bin/gendiff.js file1.yml file2.yml
 gjy:
 	node bin/gendiff.js file1.json file2.yaml
+gejj:
+	node bin/gendiff.js __fixtures__/testEmbJSON1.json __fixtures__/testEmbJSON2.json
+geyy:
+	node bin/gendiff.js __fixtures__/testEmbYML1.yml __fixtures__/testEmbYML2.yml
 init-jest:
 	npm i --save-dev jest
 test-all:
